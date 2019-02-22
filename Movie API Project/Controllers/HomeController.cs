@@ -16,7 +16,7 @@ namespace Movie_API_Project.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            ViewBag.Message = "This is the second test";
             return View();
         }
 
