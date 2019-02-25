@@ -3,20 +3,47 @@
 }
 
 <h2>Welcome!</h2>
-<p>Please sign in!</p>
+<p>Sign Up!</p>
+<form name="signup" method="post" action="/Home/AddUser" onsubmit="return Validate()">
+    <p>@ViewBag.ErrorMessage</p>
+    <p>
+        <label class="control-label">
+            First Name:
+            <input type="text" name="FirstName" class="form-control" id="fn" onkeyup="validFN()" />
+            <span id="fnMessage"></span>
+        </label>
+        <br />
 
-<p>
-    <label class="control-label">
-        Email:
-        <input type="email" name="Email" class="form-control" id="email" onkeyup="validEM()" required />
-        <span id="emMessage"></span>
-    </label>        <br />
-</p>
-<p>
-    <label class="control-label">
-        Password:
-        <input type="password" name="Password" class="form-control" id="pw" onkeyup="validPW()" required />
-        <span id="pwMessage"></span>
-    </label>        <br />
-</p>
+        <label class="control-label">
+            Last Name:
+            <input type="text" name="LastName" class="form-control" id="ln" onkeyup="validLN()" />
+            <span id="lnMessage"></span>
+        </label>        <br />
 
+        <label class="control-label">
+            Email:
+            <input type="email" name="Email" class="form-control" id="email" onkeyup="validEM()" required />
+            <span id="emMessage"></span>
+        </label>        <br />
+
+        <label class="control-label">
+            Confirm Email:
+            <input type="email" name="ConfirmEmail" class="form-control" id="cfem" onkeyup="check_match()" />
+            <span id="message"></span>
+        </label>        <br />
+
+        <label class="control-label">
+            Password:
+            <input type="password" name="Password" class="form-control" id="pw" onkeyup="validPW()" required />
+            <span id="pwMessage"></span>
+        </label>        <br />
+
+        <label class="control-label">
+            Confirm Password:
+            <input type="password" name="ConfirmPassword" class="form-control" id="cfpw" onkeyup="pwMatch()" />
+            <span id="cfpwMessage"></span>
+
+        </label>
+
+        <input type="submit" value="Register!" class="btn-default" />
+</form>
