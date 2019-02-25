@@ -11,7 +11,6 @@ namespace Movie_API_Project.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.MovieTitle = MovieDAL.GetSearchResult("Ghostbusters");
             return View();
         }
 
@@ -31,6 +30,24 @@ namespace Movie_API_Project.Controllers
             string[] Details = { "Email", "Password" };
             ViewBag.Details = User;
             return View();
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search(string Search)
+        {
+            ViewBag.MovieTitle = MovieDAL.GetSearchResult(Search);
+            return View();
+        }
+
+        public ActionResult AddFav(MovieFavorite Movies)
+        {
+            //do something to add Favorite to user's favorites
+            return RedirectToAction("Search");
         }
     }
 }
