@@ -2,5 +2,8 @@
 
 @foreach (var item in ViewBag.MovieTitle)
 {
-    <p>@item</p>
+    <p>@item.Title</p>
+    <p>@item.Poster</p>
+    <p><img src=@item.ReleaseYear alt="Alternate Text" /></p>
+    <p>@item.Type</p>
 }
