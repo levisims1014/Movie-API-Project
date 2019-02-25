@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-//using System.Data.Entity;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -23,8 +23,8 @@ namespace Movie_API_Project.Models
         }
     }
 
-    //public class DBMovieContext : DbContext
-    //{
-    //    public DbSet<Item> Items { get; set; }
-    //}
+    public class DBMovieContext : DbContext
+    {
+        public DbSet<MovieFavorite> MovieFavorite{ get; set; }
+    }
 }
