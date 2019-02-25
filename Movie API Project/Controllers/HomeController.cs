@@ -49,7 +49,7 @@ namespace Movie_API_Project.Controllers
                     return View("Registration");
                 }
             }
-
+        }
         public ActionResult Search()
         {
             return View();
