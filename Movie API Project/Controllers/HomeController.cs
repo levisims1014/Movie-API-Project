@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Movie_API_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,13 +11,17 @@ namespace Movie_API_Project.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.MovieTitle = MovieDAL.GetSearchResult("Ghost Busters");
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
+            
+            ViewBag.Test = "Hey, this is a test.";
+            
+            ViewBag.Message = "This is the second test";
             return View();
         }
 
