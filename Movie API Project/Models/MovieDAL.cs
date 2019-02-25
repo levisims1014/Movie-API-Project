@@ -11,7 +11,7 @@ namespace Movie_API_Project.Models
     public class MovieDAL
     {
         
-        public static List<string> GetData(string Url)
+        public static List<MovieFavorite> GetData(string Url)
         {
             HttpWebRequest request = WebRequest.CreateHttp(Url);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -19,24 +19,24 @@ namespace Movie_API_Project.Models
             StreamReader rd = new StreamReader(response.GetResponseStream());
             string data = rd.ReadToEnd();
             JObject movieJson = JObject.Parse(data);
-            // string title = movieJson["Search"][0]["Title"].ToString();
-            // return title;
 
             List<JToken> searchResults = movieJson["Search"].ToList();
-            List<string> titleList = new List<string>();
-            foreach (var titles in searchResults)
+            List<MovieFavorite> movies = new List<MovieFavorite>();
+            foreach (var item in searchResults)
             {
-                titleList.Add(titles["Title"].ToString());
+                //stringlist.add(item["Title"].ToString());
+                MovieFavorite temp = new MovieFavorite(item["Title"].ToString(), item["Poster"].ToString(), item["Year"].ToString(), item["Type"].ToString());
+                movies.Add(temp);
             }
-            return titleList;
+            return movies;
         }
 
-        public static List<string> GetSearchResult(string search)
+        public static List<MovieFavorite> GetSearchResult(string search)
         {
             //http://www.omdbapi.com/?i=tt3896198&apikey=c2c5c13d
             //string url = "http://www.omdbapi.com/?s=" + txtMovieName.Text.Trim() + "&apikey=XXXX";
 
-            List<string> output = GetData("http://www.omdbapi.com/?s=" + search.Trim() + "&apikey=c2c5c13d");
+            List<MovieFavorite> output = GetData("http://www.omdbapi.com/?s=" + search.Trim() + "&apikey=c2c5c13d");
             //RedditPost rp = new RedditPost(output, i);
 
             return output;

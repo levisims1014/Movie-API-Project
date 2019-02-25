@@ -11,7 +11,7 @@ namespace Movie_API_Project.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.MovieTitle = MovieDAL.GetSearchResult("Ghost Busters");
+            ViewBag.MovieTitle = MovieDAL.GetSearchResult("Ghostbusters");
             return View();
         }
 
