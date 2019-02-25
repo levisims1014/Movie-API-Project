@@ -11,7 +11,7 @@ namespace Movie_API_Project.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.MovieTitle = MovieDAL.GetSearchResult("Ghost Busters");
+            ViewBag.MovieTitle = MovieDAL.GetSearchResult("GhostBusters");
             return View();
         }
 
@@ -28,9 +28,27 @@ namespace Movie_API_Project.Controllers
         }
         public ActionResult Registration()
         {
-            string[] Details = { "Email", "Password" };
-            ViewBag.Details = User;
             return View();
+        }
+        public ActionResult AddUser(MovieUser newUser)
+        {
+            {
+
+                if (ModelState.IsValid)
+                {
+
+                    ViewBag.ConfMessage = "Welcome " + newUser.FirstName;
+                    ViewBag.Name = $"Name: {newUser.FirstName} {newUser.LastName}";
+                    ViewBag.Email = $"Email: {newUser.Email}";
+
+                    return View("Result");
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Something was invalid. Please fix it and try again.";
+                    return View("Registration");
+                }
+            }
         }
     }
 }
