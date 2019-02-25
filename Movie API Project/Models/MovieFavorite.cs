@@ -20,6 +20,8 @@ namespace Movie_API_Project.Models
 
     public class DBMovieContext : DbContext
     {
-        public DbSet<Item> Items { get; set; }
+
+        public DbSet<MovieFavorite> MovieFavorite{ get; set; }
+
     }
 }
