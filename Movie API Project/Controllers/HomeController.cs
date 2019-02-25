@@ -50,6 +50,7 @@ namespace Movie_API_Project.Controllers
                 }
             }
         }
+
         public ActionResult Search()
         {
             return View();
