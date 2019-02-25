@@ -1,0 +1,36 @@
+﻿@{ViewBag.CurrentUser = "user";}
+
+<form action="~/Home/Search" method="post">
+    <input type="Search" name="Search" placeholder="Search" />
+</form>
+
+@if (ViewBag.MovieTitle != null)
+{
+    foreach (var item in ViewBag.MovieTitle)
+    {
+<div>
+    <p><img src=@item.Poster alt="Poster for movie" /></p>
+    <p>@item.Title</p>
+    <p>@item.ReleaseYear</p>
+    <p>@item.Type</p>
+    <p>Save to Favorites?</p>
+
+    @if (ViewBag.CurrentUser == null)
+    {
+        <p>Please Login to add to Favorites.</p>
+        <p> @Html.ActionLink("Register Here!", "Registration", "Home")</p>
+    }
+    else
+    {
+
+        <p>@Html.ActionLink("Add To favorites!", "AddFav", "Home")</p>
+        <form action="/Home/AddFav" method="post">
+            <input hidden name="itemName" id="@item" value="@item" />
+            <input class="AddFav" type="submit" value="Add To Favories" onclick="myFunction()" />
+        </form>
+    }
+</div>
+
+    }
+}
+
