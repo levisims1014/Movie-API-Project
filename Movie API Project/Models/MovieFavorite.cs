@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+//using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -11,14 +11,20 @@ namespace Movie_API_Project.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string Poster { get; set; }
-        public int ReleaseYear { get; set; }
-        public string Genre { get; set; }
-        public string Plot { get; set; }
-        public string RunTime { get; set; }
+        public string ReleaseYear { get; set; }
+        public string Type { get; set; }
+
+        public MovieFavorite(string title, string poster, string year, string type)
+        {
+            this.Title = title;
+            this.Poster = poster;
+            this.ReleaseYear = year;
+            this.Type = type;
+        }
     }
 
-    public class DBMovieContext : DbContext
-    {
-        public DbSet<Item> Items { get; set; }
-    }
+    //public class DBMovieContext : DbContext
+    //{
+    //    public DbSet<Item> Items { get; set; }
+    //}
 }

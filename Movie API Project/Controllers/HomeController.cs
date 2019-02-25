@@ -11,24 +11,25 @@ namespace Movie_API_Project.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.MovieTitle = MovieDAL.GetSearchResult("Ghost Busters");
+            ViewBag.MovieTitle = MovieDAL.GetSearchResult("Ghostbusters");
             return View();
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-            
-            ViewBag.Test = "Hey, this is a test.";
-            
-            ViewBag.Message = "This is the second test";
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
+            return View();
+        }
+        public ActionResult Registration()
+        {
+            string[] Details = { "Email", "Password" };
+            ViewBag.Details = User;
             return View();
         }
     }
