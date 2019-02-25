@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Welcome!</h2>
+<p>Please sign in!</p>
+
+<p>
+    <label class="control-label">
+        Email:
+        <input type="email" name="Email" class="form-control" id="email" onkeyup="validEM()" required />
+        <span id="emMessage"></span>
+    </label>        <br />
+</p>
+<p>
+    <label class="control-label">
+        Password:
+        <input type="password" name="Password" class="form-control" id="pw" onkeyup="validPW()" required />
+        <span id="pwMessage"></span>
+    </label>        <br />
+</p>
+
