@@ -15,6 +15,10 @@ namespace Movie_API_Project.Models
         public string ReleaseYear { get; set; }
         public string Type { get; set; }
 
+        public MovieFavorite()
+        {
+
+        }
         public MovieFavorite(string title, string poster, string year, string type)
         {
             this.Title = title;
