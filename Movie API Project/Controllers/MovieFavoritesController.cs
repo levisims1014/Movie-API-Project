@@ -38,10 +38,9 @@ namespace Movie_API_Project.Controllers
         public ActionResult Create(string title, string year, string type, string poster)
         {
             MovieFavorite temp = new MovieFavorite( title,  poster,  year,  type);
-
-               db.MovieFavorite.Add(temp);
-               db.SaveChanges();
-               return RedirectToAction("Index");
+            db.MovieFavorite.Add(temp);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
         }
 
