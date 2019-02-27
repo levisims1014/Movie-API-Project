@@ -19,6 +19,7 @@ namespace Movie_API_Project.Models
         {
 
         }
+
         public MovieFavorite(string title, string poster, string year, string type)
         {
             this.Title = title;
