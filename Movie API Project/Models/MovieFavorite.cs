@@ -22,6 +22,10 @@ namespace Movie_API_Project.Models
             this.ReleaseYear = year;
             this.Type = type;
         }
+        public MovieFavorite()
+        {
+
+        }
     }
 
     public class DBMovieContext : DbContext
