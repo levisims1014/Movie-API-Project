@@ -33,7 +33,11 @@ namespace Movie_API_Project.Controllers
         {
             return View();
         }
-
+        public ActionResult Welcome(MovieUser user)
+        {
+            ViewBag.HappyMessage = "Welcome back!" + user.FirstName;
+            return View("Welcome");
+        }
         public ActionResult AddUser(MovieUser newUser)
         {
             {

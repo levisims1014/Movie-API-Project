@@ -2,7 +2,7 @@
     ViewBag.Title = "Login";
 }
 
-<form action="/User/LoginButton" method="post">
+<form action="/Home/Welcome" method="post" onsubmit="return Validate()">
     <label class="control-label">Email</label>
     <input type="text" name="Email" id="loginEmail" onkeyup="testLoginEmail()" pattern="^([A-z0-9\-.]{5,})@("@")([A-z0-9\-.]+)\.([A-z]{2,5})$" class="form-control" />
     <div id="loginEmError" style="font-weight:bold"></div>
@@ -10,5 +10,5 @@
     <input type="password" name="Password" id="loginPassword" onkeyup="testLoginPass()" pattern="^[A-z0-9]{6,}$" class=" form-control">
     <div id="loginPassError" style="font-weight:bold"></div>
     <br />
-    <input type="submit" value="Log In!" id="loginButton" class="btn-default" disabled />
+    <input type="submit" value="Log In!" id="loginButton" class="btn-default" />
 </form>
