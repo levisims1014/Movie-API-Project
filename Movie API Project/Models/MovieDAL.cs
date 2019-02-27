@@ -20,15 +20,19 @@ namespace Movie_API_Project.Models
             string data = rd.ReadToEnd();
             JObject movieJson = JObject.Parse(data);
 
-            List<JToken> searchResults = movieJson["Search"].ToList();
-            List<MovieFavorite> movies = new List<MovieFavorite>();
-            foreach (var item in searchResults)
+            if(!(movieJson["Response"].ToString() == "False"))
             {
-                //stringlist.add(item["Title"].ToString());
-                MovieFavorite temp = new MovieFavorite(item["Title"].ToString(), item["Poster"].ToString(), item["Year"].ToString(), item["Type"].ToString());
-                movies.Add(temp);
+                List<JToken> searchResults = movieJson["Search"].ToList();
+                List<MovieFavorite> movies = new List<MovieFavorite>();
+                foreach (var item in searchResults)
+                {
+                    MovieFavorite temp = new MovieFavorite(item["Title"].ToString(), item["Poster"].ToString(), item["Year"].ToString(), item["Type"].ToString());
+                    movies.Add(temp);
+                }
+                return movies;
             }
-            return movies;
+            
+            return new List<MovieFavorite>();//null?
         }
 
         public static List<MovieFavorite> GetSearchResult(string search)

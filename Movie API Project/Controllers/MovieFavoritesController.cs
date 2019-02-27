@@ -35,27 +35,13 @@ namespace Movie_API_Project.Controllers
             return View(movieFavorite);
         }
 
-        // GET: MovieFavorites/Create
-        public ActionResult Create()
+        public ActionResult Create(string title, string year, string type, string poster)
         {
-            return View();
-        }
+            MovieFavorite temp = new MovieFavorite( title,  poster,  year,  type);
+            db.MovieFavorite.Add(temp);
+            db.SaveChanges();
+            return RedirectToAction("Index");
 
-        // POST: MovieFavorites/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Poster,ReleaseYear,Type")] MovieFavorite movieFavorite)
-        {
-            if (ModelState.IsValid)
-            {
-                db.MovieFavorite.Add(movieFavorite);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(movieFavorite);
         }
 
         // GET: MovieFavorites/Edit/5

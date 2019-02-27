@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Poster)
+            <img src=@Html.DisplayFor(modelItem => item.Poster) alt="Poster for movie" />  
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReleaseYear)
@@ -41,7 +41,6 @@
             @Html.DisplayFor(modelItem => item.Type)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>

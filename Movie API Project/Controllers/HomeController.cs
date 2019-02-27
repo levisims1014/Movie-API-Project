@@ -68,6 +68,10 @@ namespace Movie_API_Project.Controllers
         public ActionResult Search(string Search)
         {
             ViewBag.MovieTitle = MovieDAL.GetSearchResult(Search);
+            if (ViewBag.MovieTitle.Count == 0)
+            {
+                ViewBag.Error = "No Results Found!";
+            }
             return View();
         }
 
