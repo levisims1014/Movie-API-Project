@@ -1,9 +1,12 @@
-﻿@{ViewBag.CurrentUser = "user";}
+﻿@*@{ViewBag.CurrentUser = "user";}*@
 
 <form action="~/Home/Search" method="post">
     <input type="Search" name="Search" placeholder="Search" />
 </form>
-
+@if(ViewBag.Error != null)
+{
+    @ViewBag.Error;
+}
 @if (ViewBag.MovieTitle != null)
 {
     foreach (var item in ViewBag.MovieTitle)
@@ -16,9 +19,18 @@
         <p>@item.ReleaseYear</p>
         <p>@item.Type</p>
         <p>Save to Favorites?</p>
+        <form action="~/MovieFavorites/Create" method="post">
+            <input hidden name="title" value="@item.Title" />
+            <input hidden name="year" value="@item.ReleaseYear" />
+            <input hidden name="type" value="@item.Type" />
+            <input hidden name="poster" value="@item.Poster" />
+            <input class="Create" type="submit" value="Add To Favories" />
+        </form>
     }
 
-    @if (ViewBag.CurrentUser == null)
+    @*
+        Currently commented out until user is implemented
+        @if (ViewBag.CurrentUser == null)
     {
         <p>Please Login to add to Favorites.</p>
         <p> @Html.ActionLink("Register Here!", "Registration", "Home")</p>
@@ -33,7 +45,7 @@
             <input hidden name="poster" value="@item.Poster" />
             <input class="Create" type="submit" value="Add To Favories" />
         </form>
-    }
+    }*@
 </div>
 
     }
